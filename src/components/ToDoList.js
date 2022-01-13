@@ -8,19 +8,30 @@ const ToDoList = () => {
     const [tasks, setTasks] = useState([])
 
     const addTask = (newTask)=>{
+
         const newTasks = [...tasks]
-        newTasks.push(newTask)
-        setTasks(newTasks)
+        if(newTask !== ''){
+            newTasks.push(newTask)
+            setTasks(newTasks)
+        }
+       
     }
 
 
     // function to take a task out of list
     const removeTask = (taskToRemove) =>{
         const newTasks = [...tasks]
-        setTasks(newTasks.filter((task)=>{
-            return task !== taskToRemove
+
+        if(tasks.length ===1){
+            setTasks([])
         }
-        ))
+        else{
+            setTasks(newTasks.filter((task)=>{
+                return task !== taskToRemove
+            }
+            ))
+        }
+        
     }
     // get tasks from local storage on load
     useEffect(()=>{
@@ -37,20 +48,31 @@ const ToDoList = () => {
         localStorage.setItem('tasks',JSON.stringify(tasks))
     },[tasks])
     return (
-        <div className ='list-container'>
-            <h1> To Do</h1>
-            <InputForm addTask = {addTask} className ='input-form'/>
-            <ul className='taks-list'>
-            {
-                tasks.map((task) =>{
-                    return(
-                        <Task key = {task} task ={task} removeTask={removeTask}/>
-                    )
-                })
-            }
-            
-            </ul>        
+        <>
+        <div className = 'list-wrapper'>
+
+
+            <div className ='list-upper'>
+                <h1>What to do Today</h1>
+                <InputForm addTask = {addTask} />
+            </div>
+            <div className='list-lower'>
+                <ul className='tasks-list'>
+                {
+                    tasks.map((task) =>{
+                        return(
+                            <Task key = {task} task ={task} removeTask={removeTask}/>
+                        )
+                    })
+                }
+                
+                </ul>        
+            </div>
+
         </div>
+        
+        </>
+        
     )
 }
 

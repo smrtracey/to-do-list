@@ -2,9 +2,9 @@ import React from 'react'
 
 const Task = ({task, removeTask}) => {
     return (
-        <div>
-           
-           <p onClick = {()=>removeTask(task)}>{task}</p> 
+        <div className = 'task-wrapper'>
+           <p className='task-desc'> {task}</p>
+           <i className="fas fa-trash-alt" onClick = {()=>removeTask(task)}></i> 
         </div>
     )
 }

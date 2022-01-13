@@ -6,20 +6,56 @@
 
 body{
     background: #ccc;
-    display: flex;
-    justify-content: center;
-    align-items: center;
-    text-align: center;
 }
 
-.list-container{
-    border: 1px solid black;
-    height: 800px;
-    width: 500px;
-    margin-top: 25%;
-    padding: 20px;
+.list-wrapper{
+    width: 30%;
+    margin: 10vh auto;
+    border: 2px solid rgb(0,255,255); 
+}
+
+.list-upper{
+    text-align: center;
 }
 
 h1{
     padding: 20px;
 }
+
+.input-form{
+    margin: 20px;
+}
+
+.input{
+    padding: 10px;
+    background: rgb(255,255,255);
+    border-radius: 20px 0 0 20px;
+    overflow: hidden;
+    border: none;
+}
+
+.submit-btn{
+    padding: 10px;
+    padding-right: 15px;
+    background: rgb(0,255,255); 
+
+    border: none;
+    border-radius: 0 20px 20px 0;
+    overflow: hidden;
+    cursor: pointer;
+}
+
+.list-lower{
+}
+
+.task-wrapper{
+    display:flex;
+    justify-content: space-between;
+    width: 90%;
+    margin:10px auto;
+    border: 1px solid rgb(255,255,0);
+    border-radius: 10px;
+    padding: 10px;
+
+}
+

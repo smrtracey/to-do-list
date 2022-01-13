@@ -16,15 +16,16 @@ const InputForm = ({addTask}) => {
     }
 
     return (
-        <form onSubmit={handleSubmit} >
+        <form onSubmit={handleSubmit}className ='input-form' >
 
             <input type ='text'
             value = {input}
             name ='task'
             onChange = {handleChange}
-            placeholder='Add a task'/>
+            placeholder='Add a task'
+            className='input'/>
 
-            <button type ='submit' onSubmit={handleSubmit}>OK</button>
+            <button type ='submit' onSubmit={handleSubmit} className='submit-btn'>ADD</button>
             
 
         </form>
